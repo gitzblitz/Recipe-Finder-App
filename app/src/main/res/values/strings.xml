@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Recipe Finder App</string>
+    <string name="title">What would you like to make?</string>
+    <string name="ingredients_hint">Ingredients eg. Tomato, sugar etc</string>
+    <string name="search_hint">Search term eg meatloaf...</string>
+    <string name="go">Go</string>
 </resources>
