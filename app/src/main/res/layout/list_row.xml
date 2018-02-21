@@ -19,6 +19,7 @@
 
             <ImageView
                 android:id="@+id/thumbnail"
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -41,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/recipeIngredients"
                 android:text="Ingredients"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="12dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
                 android:layout_marginTop="12dp"

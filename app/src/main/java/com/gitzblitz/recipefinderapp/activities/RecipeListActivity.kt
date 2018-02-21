@@ -1,7 +1,8 @@
-package com.gitzblitz.recipefinderapp
+package com.gitzblitz.recipefinderapp.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.gitzblitz.recipefinderapp.R
 
 class RecipeListActivity : AppCompatActivity() {
 
