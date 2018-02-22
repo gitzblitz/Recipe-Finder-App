@@ -13,6 +13,8 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.gitzblitz.recipefinderapp.R
 import com.gitzblitz.recipefinderapp.data.RecipeListAdapter
+import com.gitzblitz.recipefinderapp.model.BASE_URL
+import com.gitzblitz.recipefinderapp.model.QUERY
 import com.gitzblitz.recipefinderapp.model.Recipe
 import kotlinx.android.synthetic.main.activity_recipe_list.*
 import org.json.JSONException
@@ -28,12 +30,26 @@ class RecipeListActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_recipe_list)
-    var urlString = "http://www.recipepuppy.com/api"
+
+    var url: String? = null
+    var extras = intent.extras
+
+    val ingredients = extras.get("ingredients")
+    val search = extras.get("search")
+    if (extras != null && !ingredients.equals("") && !search.equals("")) {
+
+      var tempUrl = BASE_URL + ingredients + QUERY + search
+      url = tempUrl
+
+    } else {
+      url = "http://www.recipepuppy.com/api"
+    }
+//    var urlString = "http://www.recipepuppy.com/api"
 
     volleyRequest = Volley.newRequestQueue(this)
     recipeList = ArrayList()
 
-    getRecipe(urlString)
+    getRecipe(url)
   }
 
   fun getRecipe(url: String): Unit {

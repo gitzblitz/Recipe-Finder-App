@@ -1,6 +1,7 @@
 package com.gitzblitz.recipefinderapp.data
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.gitzblitz.recipefinderapp.R
+import com.gitzblitz.recipefinderapp.ShowLinkActivity
 import com.gitzblitz.recipefinderapp.model.Recipe
 import com.squareup.picasso.Picasso
 import kotlin.math.PI
@@ -44,7 +46,11 @@ class RecipeListAdapter(private val list: ArrayList<Recipe>, private val context
     fun bindView(recipe: Recipe) {
       title.text = recipe.title
       ingredients.text = recipe.ingredients
-      linkButton.setOnClickListener { }
+      linkButton.setOnClickListener {
+        var intent = Intent(context, ShowLinkActivity::class.java)
+        intent.putExtra("link", recipe.link.toString())
+        context.startActivity(intent)
+      }
 
       if (!TextUtils.isEmpty(recipe.thumbnail)) {
         Picasso.with(context)

@@ -14,7 +14,13 @@ class MainActivity : AppCompatActivity() {
 
 
     btnSearch.setOnClickListener{
-      startActivity(Intent(this, RecipeListActivity::class.java))
+
+      var intent = Intent(this, RecipeListActivity::class.java)
+      var ingredients = ingredientsEdt.text.toString().trim()
+      var searchTerm = searchTermEdt.text.toString().trim()
+      intent.putExtra("ingredients", ingredients)
+      intent.putExtra("search", searchTerm)
+      startActivity(intent)
     }
   }
 }
